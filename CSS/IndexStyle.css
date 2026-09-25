@@ -863,8 +863,6 @@
 .Our-People-Box {
     display: flex;
     gap: 2.4rem;
-
-
     width: max-content;
     animation: scrollX 30s linear infinite;
 
@@ -877,16 +875,16 @@
 }
 
 
-
 .team-card {
   position: relative;
-  overflow: visible;          /* lets the text show BELOW the image initially */
-  margin-bottom: 96px;        /* reserves space for the text under the card */
+  overflow: visible;
+  margin-bottom: 96px;flex-shrink: 0;  
+  width: calc((100vw - 7.2rem) / 4);  
 }
 
-/* image — completely frozen, zero effects */
+
 .team-img {
-  height: 340px;              /* fixed height = never changes */
+  height: 440px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -895,25 +893,25 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  /* no transform, no transition — the image never reacts */
 }
 
-/* text panel — starts below the photo like your screenshot */
 .team-info {
   position: absolute;
-  top: 100%;                  /* ← key: sits right under the image */
+  top: 100%;
   left: 0;
   right: 0;
   background: var(--BG);
   padding: 16px 18px;
   transform: translateY(0);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);  /* premium easing */
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)
 }
 
-.team-info h3 { margin: 0 0 4px; font-size: 1.25rem; }
-.team-info .role { margin: 0; font-size: 0.9rem; color: #666; }
-
-/* description — hidden initially */
+.team-info h4 {
+    margin: 0 0 4px;
+}
+.team-info .role {
+    margin: 0;
+    color: #666; }
 .team-des {
   max-height: 0;
   opacity: 0;
@@ -921,14 +919,16 @@
   transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
               opacity 0.3s ease 0.1s;
 }
-.team-des p { margin: 10px 0 0; font-size: 0.85rem; line-height: 1.5; color: #444; }
+.team-des p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    color: #444; }
 
-/* HOVER */
 .team-card:hover .team-info {
-  transform: translateY(-50%);  /* slides the whole panel up onto the image */
+  transform: translateY(-50%);
 }
 .team-card:hover .team-des {
-  max-height: 160px;             /* opens up — panel grows upward over the photo */
+  max-height: 160px;
   opacity: 1;
 }
 
