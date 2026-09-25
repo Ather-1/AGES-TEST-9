@@ -94,6 +94,7 @@ button:hover .BRARR{
     margin-left: 0.9rem;
 }
 .card-num {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
     color: #c9c9c9;
 }

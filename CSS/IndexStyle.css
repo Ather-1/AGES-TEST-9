@@ -843,3 +843,97 @@
     display: block;
 
 }
+
+
+
+
+
+
+
+
+
+
+/*=======================================================*/
+.Our-People {
+    overflow: hidden;
+    margin: 2rem 0;
+
+}
+
+.Our-People-Box {
+    display: flex;
+    gap: 2.4rem;
+
+
+    width: max-content;
+    animation: scrollX 30s linear infinite;
+
+}
+@keyframes scrollX {
+    to {transform: translateX(-50%);}
+}
+.Our-People:hover .Our-People-Box {
+    animation-play-state: paused;
+}
+
+
+
+.team-card {
+  position: relative;
+  overflow: visible;          /* lets the text show BELOW the image initially */
+  margin-bottom: 96px;        /* reserves space for the text under the card */
+}
+
+/* image — completely frozen, zero effects */
+.team-img {
+  height: 340px;              /* fixed height = never changes */
+  border-radius: 10px;
+  overflow: hidden;
+}
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* no transform, no transition — the image never reacts */
+}
+
+/* text panel — starts below the photo like your screenshot */
+.team-info {
+  position: absolute;
+  top: 100%;                  /* ← key: sits right under the image */
+  left: 0;
+  right: 0;
+  background: var(--BG);
+  padding: 16px 18px;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);  /* premium easing */
+}
+
+.team-info h3 { margin: 0 0 4px; font-size: 1.25rem; }
+.team-info .role { margin: 0; font-size: 0.9rem; color: #666; }
+
+/* description — hidden initially */
+.team-des {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease 0.1s;
+}
+.team-des p { margin: 10px 0 0; font-size: 0.85rem; line-height: 1.5; color: #444; }
+
+/* HOVER */
+.team-card:hover .team-info {
+  transform: translateY(-50%);  /* slides the whole panel up onto the image */
+}
+.team-card:hover .team-des {
+  max-height: 160px;             /* opens up — panel grows upward over the photo */
+  opacity: 1;
+}
+
+
+
+
+
+
